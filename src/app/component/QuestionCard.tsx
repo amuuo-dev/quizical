@@ -10,22 +10,11 @@ type QuestionCardProps = {
 };
 
 const QuestionCard = ({ question }: QuestionCardProps) => {
-  const [selectedOption, setSelectedOption] = useState<string | undefined>();
-
-  const onOptionSelected = (option: string) => {
-    setSelectedOption(option);
-  };
-
   return (
     <Card title={question.title}>
       <View style={{ gap: 10 }}>
         {question.options.map((option, index) => (
-          <AnswerOption
-            key={index}
-            option={option}
-            isSelected={option === selectedOption}
-            onPress={() => onOptionSelected(option)}
-          />
+          <AnswerOption key={index} option={option} />
         ))}
       </View>
     </Card>
